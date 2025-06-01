@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Activate Your Account</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin: 0;
+    }
+    .email-container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333333;
+    }
+    p {
+      font-size: 16px;
+      color: #555555;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #888888;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <h2>Welcome to Hospital Management System</h2>
+    <p>Hello {{ user.first_name }},</p>
+    <p>Thank you for registering. To activate your account, please click the button below:</p>
+    <a href="{{ activation_link }}" class="btn">Activate My Account</a>
+    <p>If the button above doesn’t work, copy and paste the link below into your browser:</p>
+    <p style="word-break: break-all;">{{ activation_link }}</p>
+    <div class="footer">
+      &copy; 2025 Hospital Management System. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>

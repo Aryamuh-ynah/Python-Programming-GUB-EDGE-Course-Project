@@ -1,0 +1,45 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">Room Availability Dashboard</h2>
+
+  <div class="row g-4">
+    {% for entry in room_data %}
+      {% with used=entry.approved|length total=entry.room.capacity %}
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <div>
+              <strong>{{ entry.room.get_room_type_display }}</strong>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="mb-2">Capacity: <strong>{{ total }}</strong></p>
+            <p class="mb-3">Booked: <strong>{{ used }}</strong></p>
+
+            {% if entry.approved %}
+              <div class="list-group list-group-flush">
+                {% for r in entry.approved %}
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                      {{ r.patient.get_name }} —
+                      {{ r.start_datetime|date:"M d, Y h:i A" }} for {{ r.duration_hours }}h
+                    </div>
+                    <span class="badge bg-info text-dark">
+                      Room {{ r.assigned_room }}
+                    </span>
+                  </li>
+                {% endfor %}
+
+              </div>
+            {% else %}
+              <p class="text-muted mb-0">No approved bookings at the moment.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endwith %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

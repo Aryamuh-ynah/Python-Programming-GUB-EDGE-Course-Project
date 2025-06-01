@@ -1,0 +1,123 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  .hero-section {
+    background: linear-gradient(to right, #6f85fe, #2441e1);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .blog-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .blog-content img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .blog-content h2 {
+    color: #65026d;
+    margin-top: 20px;
+  }
+
+  .blog-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .btn-back {
+    margin-top: 30px;
+    display: inline-block;
+    background-color: #e70d98;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .btn-back:hover {
+    background-color: #991fa6;
+  }
+</style>
+
+
+
+<section class="blog-content">
+    <article style="max-width: 900px; margin: auto; padding: 40px 20px; font-family: 'Segoe UI', sans-serif; color: #333; line-height: 1.7;">
+  <h1 style="color: #65026d; font-size: 2.5rem; text-align: center; margin-bottom: 20px;">
+    Practical Advice for Healthier Living
+  </h1>
+
+  <p style="font-size: 1.1rem;">
+    Living a healthier life doesn't require extreme diets or exhausting routines. Small, consistent changes in daily habits can lead to significant improvements in overall health and well-being. Here are some practical and achievable tips to guide your journey toward a healthier lifestyle.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">1. Stay Hydrated</h2>
+  <p>
+    Water plays a crucial role in regulating body temperature, flushing out toxins, and supporting digestion. Aim for at least 8 glasses of water daily. Keep a refillable water bottle with you to make hydration a habit.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">2. Prioritize Sleep</h2>
+  <p>
+    Quality sleep restores the body and mind. Adults should aim for 7–9 hours per night. Create a relaxing bedtime routine, avoid screens before sleep, and maintain a consistent schedule even on weekends.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">3. Eat Balanced Meals</h2>
+  <p>
+    Incorporate a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats into your meals. Avoid skipping breakfast and try to cook more meals at home to control ingredients and portion sizes.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">4. Move Your Body</h2>
+  <p>
+    Regular physical activity boosts heart health, mood, and energy levels. Aim for at least 30 minutes of moderate exercise most days, whether it’s walking, cycling, dancing, or yoga.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">5. Practice Mindfulness</h2>
+  <p>
+    Managing stress is vital for physical and mental health. Spend a few minutes each day practicing mindfulness through meditation, deep breathing, or journaling. Being present helps reduce anxiety and improves focus.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">6. Limit Processed Foods</h2>
+  <p>
+    Highly processed foods are often high in sugar, sodium, and unhealthy fats. Read nutrition labels, cook fresh meals when possible, and treat processed snacks as occasional treats—not staples.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">7. Stay Connected</h2>
+  <p>
+    Social well-being matters too. Spend time with family, talk to friends, or join a community group. Positive relationships contribute to emotional resilience and a sense of belonging.
+  </p>
+
+  <h2 style="color: #2441e1; margin-top: 30px;">8. Schedule Regular Check-Ups</h2>
+  <p>
+    Preventive healthcare is key. Visit your doctor for routine check-ups, screenings, and vaccinations. Early detection can prevent more serious health issues.
+  </p>
+
+  <p style="margin-top: 40px; font-style: italic; color: #6f85fe;">
+    Remember, healthy living is a journey—take small steps and stay consistent. Your body and mind will thank you.
+  </p>
+</article>
+
+
+  <h2>{{ blog.subtitle }}</h2>
+  <p>{{ blog.content }}</p>
+
+</section>
+{% endblock %}

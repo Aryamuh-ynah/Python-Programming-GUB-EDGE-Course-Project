@@ -1,0 +1,75 @@
+{% extends 'hospital/patient_base.html' %}
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+{% block content %}
+{% load widget_tweaks %}
+
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Request a Room</h4>
+    </div>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+
+        <!-- Room Type -->
+        <div class="mb-3">
+          <label class="form-label">{{ form.room_type.label }}</label>
+          {% render_field form.room_type class="form-select" %}
+          {% if form.room_type.errors %}
+            <div class="text-danger small">{{ form.room_type.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Start Date and Time -->
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.start_datetime.id_for_label }}">
+            {{ form.start_datetime.label }}
+          </label>
+          {% render_field form.start_datetime class="form-control" %}
+          {% if form.start_datetime.errors %}
+            <div class="text-danger small">{{ form.start_datetime.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Duration Hours -->
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.duration_hours.id_for_label }}">
+            {{ form.duration_hours.label }}
+          </label>
+          {% render_field form.duration_hours class="form-control" %}
+          {% if form.duration_hours.errors %}
+            <div class="text-danger small">{{ form.duration_hours.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Submit -->
+        <div class="text-end">
+          <button type="submit" class="btn btn-success">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

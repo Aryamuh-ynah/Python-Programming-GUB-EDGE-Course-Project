@@ -1,0 +1,39 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+<div class="container py-4">
+  <h2>Pending Room Requests</h2>
+  {% if requests %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Type</th>
+          <th>Start</th>
+          <th>Duration (hrs)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for r in requests %}
+        <tr>
+          <td>{{ r.patient.get_name }}</td>
+          <td>{{ r.get_room_type_display }}</td>
+          <td>{{ r.start_datetime }}</td>
+          <td>{{ r.duration_hours }}</td>
+          <td>
+            <a class="btn btn-sm btn-success"
+               href="{% url 'approve-room-request' r.id %}">Approve</a>
+            <a class="btn btn-sm btn-danger"
+               href="{% url 'reject-room-request'  r.id %}">Reject</a>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="alert alert-info">
+      There are no pending room requests.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

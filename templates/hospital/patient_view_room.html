@@ -1,0 +1,47 @@
+{% extends "hospital/patient_base.html" %}
+
+{% block content %}
+{%load static%}
+
+
+<div class="container py-4">
+  <h2 class="mb-4">Your Room Requests</h2>
+
+  {% if requests %}
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Start</th>
+            <th scope="col">Duration (hrs)</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in requests %}
+          <tr>
+            <td>{{ r.get_room_type_display }}</td>
+            <td>{{ r.start_datetime }}</td>
+            <td>{{ r.duration_hours }}</td>
+            <td>
+              {% if r.status == r.PENDING %}
+                <span class="badge bg-warning text-dark">Pending</span>
+              {% elif r.status == r.APPROVED %}
+                <span class="badge bg-success">Approved</span>
+              {% else %}
+                <span class="badge bg-danger">Rejected</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="alert alert-info">
+      You haven’t made any room requests yet.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

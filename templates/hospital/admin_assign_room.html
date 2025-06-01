@@ -1,0 +1,44 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+<div class="container py-4">
+  <h2>Approve & Assign Room</h2>
+  <p><strong>Patient:</strong> {{ request_obj.patient.get_name }}</p>
+  <p>
+    <strong>Requested:</strong>
+    {{ request_obj.get_room_type_display }} on
+    {{ request_obj.requested_at|date:"Y-m-d H:i" }}
+  </p>
+<h4>Available {{ request_obj.get_room_type_display }} Rooms</h4>
+<ul class="list-group mb-4">
+  <li class="list-group-item d-flex justify-content-between">
+    <span>Room No: 101A,102A, 103A, 105A</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between">
+    <span>Room No: 102B</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between">
+    <span>Room No: 103C, 106</span>
+  </li>
+</ul>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="mb-3">
+      {{ form.assigned_room.label_tag }}
+      {{ form.assigned_room }}
+      {% for err in form.assigned_room.errors %}
+        <div class="text-danger">{{ err }}</div>
+      {% endfor %}
+    </div>
+
+    <button type="submit" class="btn btn-success">Approve & Assign</button>
+    <!-- Cancel goes back in browser history -->
+    <button
+      type="button"
+      class="btn btn-secondary ms-2"
+      onclick="history.back()"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
+{% endblock %}

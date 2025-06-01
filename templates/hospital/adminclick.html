@@ -1,0 +1,63 @@
+{% extends 'hospital/homebase.html' %}
+
+{% block content %}
+<style>
+  .admin-welcome {
+    background: linear-gradient(135deg, #6f85fe, #2441e1);
+    color: white;
+    padding: 80px 30px;
+    text-align: center;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 60px auto 30px auto;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .admin-welcome:hover {
+    transform: translateY(-5px);
+  }
+
+  .admin-welcome h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .admin-welcome p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+  }
+
+  .admin-welcome .btn {
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(to right, #ea6dc9, #e70d98);
+    color: white;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .admin-welcome .btn:hover {
+    background: linear-gradient(to right, #e70d98, #991fa6);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+<div class="admin-welcome">
+  <h1>Hello, Admin</h1>
+  <p>Welcome to the Hospital Management System.</p>
+  <hr style="border-top: 2px solid rgba(255,255,255,0.2); width: 60%; margin: 20px auto;">
+  <p>You can access various features after Login/SignUp.</p>
+  <div>
+    <a class="btn" href="/adminsignup" role="button">Sign Up</a>
+    <a class="btn" href="/adminlogin" role="button">Login</a>
+  </div>
+</div>
+{% endblock content %}

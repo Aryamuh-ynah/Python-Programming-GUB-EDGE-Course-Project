@@ -1,0 +1,160 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+/* Global Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); }}
+.animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+/* Hero */
+.hero-section { position: relative; background: url("{% static 'images/bg.jpg' %}") center/cover no-repeat; min-height: 75vh; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; overflow: hidden; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.hero-content { position: relative; z-index: 2; }
+#appointment-btn { animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.05); }}
+/* Section titles */
+.section-title { text-align: center; margin-bottom: 2rem; }
+/* About */
+.about img { width: 100%; border-radius: 0.5rem; }
+/* Doctors */
+.doctor-card { text-align: center; border: none; }
+.doctor-card img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; }
+/* Testimonials */
+.testimonial { background: #f8f9fa; padding: 2rem; border-radius: 0.5rem; margin-bottom: 1.5rem; }
+.testimonial img { width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem; }
+/* Blogs */
+.blog-card { border: none; transition: transform .3s; }
+.blog-card:hover { transform: translateY(-5px); }
+.blog-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem; }
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-content container animate" style="animation-delay:0.2s;">
+    <h1 class="display-3 fw-bold">Your Health, Our Priority</h1>
+    <p class="lead mb-4">Emergency services and expert care at your fingertips.</p>
+    <a href="\patientclick" class="btn btn-primary btn-lg" id="appointment-btn">Take Appointment</a>
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section class="about py-5">
+  <div class="container">
+    <h2 class="section-title animate" style="animation-delay:0.2s;">About Us</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 animate" style="animation-delay:0.4s;">
+        <img src="{% static 'images/hospital.jpeg' %}" alt="About Demo">
+      </div>
+      <div class="col-md-6 animate" style="animation-delay:0.6s;">
+        <p>Our hospital management system provides a seamless experience for patients and doctors alike, ensuring efficient operations and high-quality care.</p>
+        <p>From appointment scheduling to room bookings, we handle all aspects with precision and empathy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services bg-light py-5">
+  <div class="container">
+    <h2 class="section-title animate" style="animation-delay:0.2s;">Our Services</h2>
+    <div class="row text-center g-4">
+      <div class="col-md-4 animate" style="animation-delay:0.4s;">
+        <div class="card service-card h-100 p-4">
+          <img src="{% static 'images/app.png' %}" alt="Appointments" class="service-icon mx-auto">
+          <h5 class="mt-3">Easy Appointments</h5>
+          <p>Book your visit quickly with real-time availability.</p>
+        </div>
+      </div>
+      <div class="col-md-4 animate" style="animation-delay:0.6s;">
+        <div class="card service-card h-100 p-4">
+          <img src="{% static 'images/cons.png' %}" alt="Consultation" class="service-icon mx-auto">
+          <h5 class="mt-3">Online Consultations</h5>
+          <p>Get expert advice from our doctors remotely.</p>
+        </div>
+      </div>
+      <div class="col-md-4 animate" style="animation-delay:0.8s;">
+        <div class="card service-card h-100 p-4">
+          <img src="{% static 'images/room.png' %}" alt="Room Booking" class="service-icon mx-auto">
+          <h5 class="mt-3">Room Booking</h5>
+          <p>Reserve patient rooms with ease and flexibility.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Doctors Section -->
+<section class="doctors py-5">
+  <div class="container">
+    <h2 class="section-title animate" style="animation-delay:0.2s;">Meet Our Doctors</h2>
+    <div class="row g-4">
+      {% for i in "1234" %}
+      <div class="col-md-3 animate" style="animation-delay:0.2s;">
+        <div class="card doctor-card p-3 h-100">
+          <img src="{% static 'images/doctor.png' %}" alt="Doctor">
+          <h6>Dr. John Doe</h6>
+          <small class="text-muted">Cardiologist</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials bg-light py-5">
+  <div class="container">
+    <h2 class="section-title animate" style="animation-delay:0.2s;">Testimonials</h2>
+    <div class="row g-4">
+      {% for i in "123" %}
+      <div class="col-md-4 animate" style="animation-delay:0.4s;">
+        <div class="testimonial">
+          <img src="{% static 'images/p.jpg' %}" alt="Patient">
+          <p class="mt-2">“Great service and caring staff made my stay comfortable!”</p>
+          <strong>— Patient Name</strong>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Blogs Section -->
+<section id="blogs" class="blogs py-5">
+  <div class="container">
+    <h2 class="section-title animate" style="animation-delay:0.2s;">Latest Blog</h2>
+    <div class="row g-4">
+      {% for i in "123" %}
+      <div class="col-md-4 animate" style="animation-delay:0.4s;">
+        <div class="card blog-card h-100">
+          <img src="{% static 'images/health.jpeg' %}" alt="Blog">
+          <div class="card-body">
+            <h5 class="card-title">Health Tips &amp; News</h5>
+            <p class="card-text">Stay updated with the latest healthcare insights and advice.</p>
+            <a href="{% url 'blog' %}" class="btn btn-outline-primary">Read More</a>
+
+            {% comment %} <a href="/blog" class="btn btn-sm btn-primary">Read More</a> {% endcomment %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<div class="container">
+  <h2 id="join-section" class="section-title animate" style="animation-delay:0.2s;">Join</h2>
+</div>
+<script>
+// Scroll animations
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver((entries, o) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('animate'); o.unobserve(e.target);}  });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate').forEach(el => obs.observe(el));
+});
+</script>
+
+{% include "hospital/admin_doctor_patient_card.html" %}
+{% endblock %}

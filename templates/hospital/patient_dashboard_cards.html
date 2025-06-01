@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Doctor Information</title>
+
+  <style media="screen">
+    /* General Styling */
+   /* General Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f3f4f6;
+  color: #65026d;
+}
+
+/* Market Block Styling */
+.market-update-block {
+  padding: 2em;
+  background: #991fa6;
+  border-radius: 12px;
+  transition: 0.5s all;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.market-update-block h3 {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.market-update-block h4 {
+  font-size: 1.2em;
+  color: #fff;
+  margin: 0.3em 0;
+}
+
+.market-update-block p {
+  color: #fff;
+  font-size: 0.9em;
+  line-height: 1.8em;
+}
+
+/* Color and Hover Effects */
+.market-update-block.clr-block-1 {
+  background: #65026d;
+}
+
+.market-update-block.clr-block-2 {
+  background: #e70d98;
+}
+
+.market-update-block.clr-block-3 {
+  background: #6f85fe;
+}
+
+.market-update-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon Styling */
+.market-update-right i {
+  font-size: 3em;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  background: #2441e1;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 1.7em;
+  transition: all 0.3s ease;
+}
+
+.market-update-right i:hover {
+  background: #991fa6;
+  transform: scale(1.1);
+}
+
+/* Layout Adjustments */
+.market-updates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.market-update-gd {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .market-update-gd {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+  </style>
+
+  <!-- Bootstrap and FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="market-updates">
+    <!-- Doctor Name -->
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-1">
+        <div class="col-md-8 market-update-left">
+          <h3>{{doctorName}}</h3>
+          <h4>Doctor Name</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!-- Symptoms -->
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-2">
+        <div class="col-md-8 market-update-left">
+          <h3>{{symptoms}}</h3>
+          <h4>Symptoms</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-info-circle"></i>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!-- Doctor Mobile -->
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-3">
+        <div class="col-md-8 market-update-left">
+          <h3>{{doctorMobile}}</h3>
+          <h4>Doctor Mobile</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-mobile" aria-hidden="true"></i>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+  <!-- Doctor Address, Department, and Admit Date -->
+  <div class="market-updates">
+    <!-- Doctor Address -->
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-1">
+        <div class="col-md-8 market-update-left">
+          <h3>{{doctorAddress}}</h3>
+          <h4>Doctor Address</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-map-marker"></i>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!-- Doctor Department -->
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-2">
+        <div class="col-md-8 market-update-left">
+          <h3>{{doctorDepartment}}</h3>
+          <h4>Doctor Department</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-list-alt"></i>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <!-- Admit Date -->
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-3">
+        <div class="col-md-8 market-update-left">
+          <h3>{{admitDate}}</h3>
+          <h4>Join Date</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Patient Signup</title>
+  <style>
+    body {
+      color: #aa082e;
+      background-color: #b6bde7;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+  </style>
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+
+  {% include "hospital/navbar.html" %}
+  <br><br><br><br>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if userForm.errors or patientForm.errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for field, errors in userForm.errors.items %}
+          {% for error in errors %}
+            <li><strong>{{ field|capfirst }}</strong>: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for error in userForm.non_field_errors %}
+          <li><strong>Error</strong>: {{ error }}</li>
+        {% endfor %}
+        {% for field, errors in patientForm.errors.items %}
+          {% for error in errors %}
+            <li><strong>{{ field|capfirst }}</strong>: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for error in patientForm.non_field_errors %}
+          <li><strong>Error</strong>: {{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="container register-form">
+      <div class="form">
+        <div class="note"><p>Register to Hospital</p></div>
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+              </div>
+              <div class="form-group">
+                {% render_field userForm.username class="form-control" placeholder="Username" %}
+              </div>
+              <div class="form-group">
+                {% render_field userForm.email class="form-control" placeholder="Email Address" %}
+              </div>
+              <div class="form-group">
+                {% render_field patientForm.symptoms class="form-control" placeholder="Symptoms" %}
+              </div>
+              <div class="form-group">
+                {% render_field patientForm.address class="form-control" placeholder="Address" %}
+              </div>
+              <div class="form-group">
+                {% render_field patientForm.profile_pic class="form-control" placeholder="Profile Picture" %}
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+              </div>
+              <div class="form-group">
+                {% render_field userForm.password class="form-control" placeholder="Password" %}
+              </div>
+              <div class="form-group">
+                {% render_field userForm.confirm_password class="form-control" placeholder="Confirm Password" %}
+              </div>
+              <div class="form-group">
+                {% render_field patientForm.mobile class="form-control" placeholder="Mobile Number" %}
+              </div>
+              
+              <div class="form-group">
+                {% render_field patientForm.assignedDoctorId class="form-control" %}
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btnSubmit">Register</button>
+          <div class="text-center">Already have an account? <a href="/patientlogin">Login here</a></div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  {% include "hospital/footer.html" %}
+</body>
+
+</html>

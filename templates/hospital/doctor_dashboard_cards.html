@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <style media="screen">
+    /* General Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f3f4f6;
+  color: #65026d;
+}
+
+/* Market Block Styling */
+.market-update-block {
+  padding: 2em;
+  border-radius: 12px;
+  background: #991fa6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.4s all ease;
+}
+
+.market-update-block h3 {
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.market-update-block h4 {
+  font-size: 1.2em;
+  color: #fff;
+  margin: 0.3em 0;
+}
+
+.market-update-block p {
+  color: #fff;
+  font-size: 0.8em;
+  line-height: 1.8em;
+}
+
+/* Color and Hover Effects */
+.market-update-block.clr-block-1 {
+  background: #65026d;
+}
+
+.market-update-block.clr-block-2 {
+  background: #e70d98;
+}
+
+.market-update-block.clr-block-3 {
+  background: #6f85fe;
+}
+
+.market-update-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon Styling */
+.market-update-right i {
+  font-size: 3em;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  background: #2441e1;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 1.7em;
+  transition: all 0.3s ease;
+}
+
+.market-update-right i:hover {
+  background: #ea6dc9;
+  transform: scale(1.1);
+}
+
+/* Layout Adjustments */
+.market-updates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.market-update-gd {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .market-update-gd {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="market-updates">
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-1">
+        <div class="col-md-8 market-update-left">
+          <h3>{{appointmentcount}}</h3>
+          <h4>Appointments For You</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-calendar"> </i>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-2">
+        <div class="col-md-8 market-update-left">
+          <h3>{{patientcount}}</h3>
+          <h4>Patient Under You</h4>
+
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-3">
+        <div class="col-md-8 market-update-left">
+          <h3>{{patientdischarged}}</h3>
+          <h4>Your Patient Discharged</h4>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+</body>
+
+</html>

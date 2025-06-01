@@ -1,0 +1,113 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+/* Animations */
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0);} }
+.animate { opacity: 0; animation: fadeInDown 0.8s ease-out forwards; }
+/* Hero Banner */
+.about-hero { position: relative; background: url("{% static 'images/about-bg.jpg' %}") center/cover no-repeat; height: 60vh; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 0 2px 6px rgba(0,0,0,0.8); }
+.about-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+.about-hero .hero-content { position: relative; z-index: 1; }
+/* Core Values */
+.values .card { border: none; transition: transform .3s, box-shadow .3s; }
+.values .card:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+/* Team Section */
+.team img { width: 150px; height: 150px; object-fit: cover; border-radius:50%; }
+</style>
+
+<!-- Hero Banner -->
+<section class="about-hero">
+  <div class="hero-content text-center animate">
+    <h1 class="display-4">About Our Hospital</h1>
+    <p class="lead">Committed to excellence in patient care, research, and community health.</p>
+  </div>
+</section>
+
+<!-- Who We Are -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 animate">
+        <h2>Who We Are</h2>
+        <p>Our Hospital Management System delivers a seamless experience for administrators, doctors, and patients. Founded on the principles of compassion and innovation, we strive to enhance healthcare delivery through technology.</p>
+      </div>
+      <div class="col-md-6 animate width: 100%;" style="animation-delay:0.4s;">
+        <img src="{% static 'images/who.jpeg' %}" alt="Who We Are" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="values bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4 animate">Our Core Values</h2>
+    <div class="row g-4">
+      <div class="col-md-4 animate">
+        <div class="card text-center p-4 h-100">
+          <i class="fa fa-heart fa-3x mb-3 text-primary"></i>
+          <h5>Compassion</h5>
+          <p>We uphold compassion in every service we provide.</p>
+        </div>
+      </div>
+      <div class="col-md-4 animate">
+        <div class="card text-center p-4 h-100">
+          <i class="fa fa-shield fa-3x mb-3 text-primary"></i>
+          <h5>Integrity</h5>
+          <p>We uphold integrity in every service we provide.</p>
+        </div>
+      </div>
+      <div class="col-md-4 animate">
+        <div class="card text-center p-4 h-100">
+          <i class="fa fa-lightbulb-o fa-3x mb-3 text-primary"></i>
+          <h5>Innovation</h5>
+          <p>We uphold innovation in every service we provide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Journey (Timeline) -->
+
+<!-- Team Section -->
+<section class="team bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4 animate">Meet Our Leadership</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-3 animate">
+        <img src="{% static 'images/default_avatar.png' %}" alt="Leader" class="mb-3">
+        <h6>Dr. Jane Smith</h6>
+        <small class="text-muted">Chief Executive</small>
+      </div>
+      <div class="col-md-3 animate">
+        <img src="{% static 'images/admin.png' %}" alt="Leader" class="mb-3">
+        <h6>Dr. Alan White</h6>
+        <small class="text-muted">Medical Director</small>
+      </div>
+      <div class="col-md-3 animate">
+        <img src="{% static 'images/doctor.png' %}" alt="Leader" class="mb-3">
+        <h6>Dr. Maria Lee</h6>
+        <small class="text-muted">Head of Research</small>
+      </div>
+      <div class="col-md-3 animate">
+        <img src="{% static 'images/admin.png' %}" alt="Leader" class="mb-3">
+        <h6>Mr. John Roe</h6>
+        <small class="text-muted">Operations Manager</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Home Button Section -->
+<section class="py-5 text-center">
+  <h2 class="mb-4 animate">Ready to Experience Quality Care?</h2>
+  <p class="lead animate">Join us in our mission to provide exceptional healthcare.</p>
+
+  <a href="/" class="btn btn-primary btn-lg">Home</a>
+</section>
+
+{% endblock %}

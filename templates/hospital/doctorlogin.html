@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hospital Management System</title>
+
+
+  <style type="text/css">
+    body {
+      color: #aa082e;
+      background-color: #b6bde7;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+   .btnSubmit {
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    width: auto;
+    background: linear-gradient(to right, #ea6dc9, #e70d98);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+  }
+
+  .btnSubmit:hover {
+    background: linear-gradient(to right, #e70d98, #991fa6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+</head>
+
+<body>
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+  {% include "hospital/navbar.html" %}
+  <br>
+  <br>
+  <br><br>
+
+  <!--- login page for doctor ---------->
+  <form method="post">
+    {% csrf_token %}
+    <div class="container register-form">
+      {% if form.non_field_errors %}
+  <div class="alert alert-danger">
+    {% for error in form.non_field_errors %}
+      {{ error }}
+    {% endfor %}
+  </div>
+{% endif %}
+
+      <div class="form">
+        <div class="note">
+          <p>Doctor Login Page</p>
+        </div>
+
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="form-group">
+                {% render_field form.username class="form-control" placeholder="Username" %}
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+              <div class="form-group">
+                {% render_field form.password class="form-control" placeholder="Password" %}
+              </div>
+
+            </div>
+          </div>
+          <button type="submit" class="btnSubmit">Login</button>
+          <div class="text-center">Do not have account? <a href="doctorsignup">Signup here</a></div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <br><br><br>
+  
+  {% include "hospital/footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <style>
+  .market-update-block {
+    padding: 2em;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .market-update-block:hover {
+    transform: translateY(-5px);
+  }
+
+  .market-update-block h3 {
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+
+  .market-update-block h4 {
+    font-size: 1.2em;
+    margin: 0.3em 0em;
+  }
+
+  .market-update-block p {
+    font-size: 0.85em;
+    line-height: 1.8em;
+  }
+
+  .clr-block-1 {
+    background: linear-gradient(135deg, #65026d, #991fa6);
+  }
+
+  .clr-block-2 {
+    background: linear-gradient(135deg, #ea6dc9, #e70d98);
+  }
+
+  .clr-block-3 {
+    background: linear-gradient(135deg, #6f85fe, #2441e1);
+  }
+
+  .market-update-right i {
+    font-size: 3em;
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    border-radius: 50%;
+    line-height: 80px;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+
+  .market-update-right i:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .market-update-left {
+    padding: 0;
+  }
+
+  .market-updates {
+    margin-top: 30px;
+  }
+</style>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="market-updates">
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-1">
+        <div class="col-md-8 market-update-left">
+          <h3>{{doctorcount}}</h3>
+          <h4>Total Doctor</h4>
+          <p>Approval Required : {{pendingdoctorcount}}</p>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-user-md"></i>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-2">
+        <div class="col-md-8 market-update-left">
+          <h3>{{patientcount}}</h3>
+          <h4>Total Patient</h4>
+          <p>Wants to Admit : {{pendingpatientcount}}</p>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="col-md-4 market-update-gd">
+      <div class="market-update-block clr-block-3">
+        <div class="col-md-8 market-update-left">
+          <h3>{{appointmentcount}}</h3>
+          <h4>Total Appointment</h4>
+          <p>Approve Appointments :{{pendingappointmentcount}} </p>
+        </div>
+        <div class="col-md-4 market-update-right">
+          <i class="fa fa-calendar"> </i>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+</body>
+
+</html>

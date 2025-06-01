@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Roles</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    :root {
+      --color-1: #65026d;
+      --color-2: #991fa6;
+      --color-3: #ea6dc9;
+      --color-4: #e70d98;
+      --color-5: #6f85fe;
+      --color-6: #2441e1;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .title {
+      color: var(--color-2);
+      font-size: 24px;
+      font-weight: 700;
+      margin: 15px 0 10px;
+    }
+
+    button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: var(--color-4);
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      transition: background 0.3s ease;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    button:hover {
+      background-color: var(--color-1);
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    @media (max-width: 600px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="grid-container">
+    <div class="card">
+      <img src="{% static 'images/admin.png' %}" alt="Admin">
+      <p class="title">ADMIN</p>
+      <button><a href="/adminclick">View</a></button>
+    </div>
+
+    <div class="card">
+      <img src="{% static 'images/doctor.png' %}" alt="Doctor">
+      <p class="title">DOCTOR</p>
+      <button><a href="/doctorclick">View</a></button>
+    </div>
+
+    <div class="card">
+      <img src="{% static 'images/patient.png' %}" alt="Patient">
+      <p class="title">PATIENT</p>
+      <button><a href="/patientclick">View</a></button>
+    </div>
+  </div>
+
+</body>
+
+</html>
